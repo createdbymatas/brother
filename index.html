@@ -463,6 +463,36 @@
             opacity: 0;
             transition: 0.3s;
         }
+        #computer10step{
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            opacity: 0;
+            transition: 0.3s;
+        }
+        #computer11step{
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            opacity: 0;
+            transition: 0.3s;
+        }
         #troubleshooting{
             width: 100%;
             height: 100%;
@@ -560,7 +590,11 @@
         <button onclick="Cstep71()" ontouchstart style="display: none;" id="grizti8"><i class="fa-solid fa-chevron-left"></i> Grįžti</button>
         <button onclick="Cstep9()" ontouchstart style="display: none;" id="toliau8">Toliau <i class="fa-solid fa-chevron-right"></i></button>
         <button onclick="Cstep8()" ontouchstart style="display: none;" id="grizti9"><i class="fa-solid fa-chevron-left"></i> Grįžti</button>
-        <button onclick="baigti()" ontouchstart style="display: none;" id="toliau9"><i class="fa-solid fa-flag-checkered"></i> Atlikta</button>
+        <button onclick="Cstep10()" ontouchstart style="display: none;" id="toliau9">Toliau <i class="fa-solid fa-chevron-right"></i></button>
+        <button onclick="Cstep9()" ontouchstart style="display: none;" id="grizti10"><i class="fa-solid fa-chevron-left"></i> Grįžti</button>
+        <button onclick="Cstep11()" ontouchstart style="display: none;" id="toliau10">Toliau <i class="fa-solid fa-chevron-right"></i></button>
+        <button onclick="Cstep10()" ontouchstart style="display: none;" id="grizti11"><i class="fa-solid fa-chevron-left"></i> Grįžti</button>
+        <button onclick="baigti()" ontouchstart style="display: none;" id="toliau11"><i class="fa-solid fa-flag-checkered"></i> Atlikta</button>
     </div>
         <div id="start">
             <h1>Pasirink:</h3>
@@ -623,16 +657,27 @@
             <p class="stepP" style="margin-top: 10px;"><b><i>PASTABA:</i></b> Spausdamas ▲ mygtuką gali pridėti tiek lapų, kiek papildomai reikia nuskenuoti ir pridėti į tą patį failą.</p>
         </div>
         <div id="computer8step">
-            <h2 style="margin-bottom: 50px;"><b>8.</b> Spausdintuvo ekrane uždaryk skenavimo meniu naudojant <b class="extraB"><span style="color: red;">▬▬</span> Stop/Exit</b> mygtuką.</h2>
+            <h2><b>8.</b> Kai nebereikia į tą patį failą išsaugoti daugiau lapų, paspausk ▼ mygtuką.</h2>
+            <p class="stepP">Spustelėk <b class="extraB">Toliau <i class="fa-solid fa-chevron-right"></i></b>, kai spausdintuvo ekranas rodo: <div class="screen"><p>Processing</p></div></p>
+            <p class="vertimas">(Apdorojama)</p>
         </div>
         <div id="computer9step">
-            <h2><b>9.</b> Spausdinimas baigtas.</h2>
-            <p class="stepP">Kompiuterio ekrano apačioje turi pasirodyti pranešimas <i class="fa-solid fa-circle-check" style="color: #5AA132; background-color: white; border-radius: 100%;"></i> <b class="extraB">Completed</b> <i>(Baigta)</i>.<br>Paspaudus mygtuką <span style="background-color: white; color: black; font-size: 15px; padding: 3px; padding-left: 20px; padding-right: 20px; font-weight: 100; border-radius: 5px;"> Open Folder</span> <i>(Atidaryti aplanką)</i> bus atidarytas kompiuterio aplankas <i>Dokumentai</i>, kuriame bus sukurtas failas.<br>Dokumento pavadinimas yra <i class="fa-solid fa-file-pdf"></i><i>ScanMMMM-mm-dd_vvmmss.pdf</i> (pvz.: Scan2025-07-28_140130).</p>
+            <h2><b>9.</b> Palauk, kol spausdintuvas apdoros ir sukurs failą.</h2>
+            <p class="stepP">Spustelėk <b class="extraB">Toliau <i class="fa-solid fa-chevron-right"></i></b>, kai spausdintuvo ekranas rodo: <div class="screen"><p>Scan: Select ▲▼</p></div></p>
+            <p class="vertimas">(Skenavimas: Pasirinkti ▲▼)</p>
+        </div>
+        <div id="computer10step">
+            <h2><b>10.</b> Spausdintuvo ekrane uždaryk skenavimo meniu naudojant <b class="extraB"><span style="color: red;">▬▬</span> Stop/Exit</b> mygtuką.</h2>
+        </div>
+        <div id="computer11step">
+            <h2><b>11.</b> Spausdinimas baigtas.</h2>
+            <p class="stepP">Kompiuterio ekrano apačioje turi pasirodyti pranešimas <i class="fa-solid fa-circle-check" style="color: #5AA132; background-color: white; border-radius: 100%;"></i> <b class="extraB">Completed</b> <i>(Baigta)</i>.<br>Paspaudus mygtuką <span style="background-color: white; color: black; font-size: 15px; padding: 3px; padding-left: 20px; padding-right: 20px; font-weight: 100; border-radius: 5px;"> Open Folder</span> <i>(Atidaryti aplanką)</i> bus atidarytas kompiuterio aplankas <i>Dokumentai</i>, kuriame sukurtas failas.<br>Dokumento pavadinimas yra <i class="fa-solid fa-file-pdf"></i><i>ScanMMMM-mm-dd_vvmmss.pdf</i> (pvz.: Scan2025-07-28_140130).</p>
         </div>
         <div id="troubleshooting">
             <p class="stepP">Jei spausdintuvo ekranas rodo: <div class="screen"><p>Scan to File</p><p>No PC found.</p></div></p>
             <p class="vertimas" style="margin-bottom: 10px;">(Skenuoti failą / Kompiuteris nerastas.)</p>
-            <h2 style="margin-bottom: 50px;">Uždaryk skenavimo meniu spausdintuvo ekrane naudojant <b class="extraB"><span style="color: red;">▬▬</span> Stop/Exit</b> mygtuką,<br>kompiuteryje atidaryk programą <i>Brother iPrint&Scan</i>,<br>atlik visus veiksmus iš naujo.</h2>
+            <h2>Uždaryk skenavimo meniu spausdintuvo ekrane naudojant <b class="extraB"><span style="color: red;">▬▬</span> Stop/Exit</b> mygtuką,<br>kompiuteryje atidaryk programą <i>Brother iPrint&Scan</i>.</h2>
+            <p class="stepP" style="margin-bottom: 50px;">Pabandyk atlikti visus veiksmus iš naujo.</p>
             <div>
                 <button ontouchstart onclick="closeTroubleshoot()" style="margin-right: 15px;"><i class="fa-solid fa-xmark"></i> Uždaryti</button>
                 <button ontouchstart onclick="restart()"><i class="fa-solid fa-rotate-right"></i> Bandyti iš naujo</button>
@@ -757,7 +802,7 @@
                 document.getElementById('scanWindow').style.display = 'none';
                 document.getElementById('computer2step').style.display = 'none';
                 document.getElementById('computer1step').style.display = 'flex';
-                document.getElementById('navMainP').innerHTML = 'Skenavimas | išsaugoti kompiuteryje';
+                document.getElementById('navMainP').innerHTML = 'Skenavimas - išsaugoti kompiuteryje';
                 document.getElementById('bottomNav').style.bottom = '0';
                 document.getElementById('grizti2').style.display = 'none';
                 document.getElementById('toliau2').style.display = 'none';
@@ -951,31 +996,75 @@
         }
         function Cstep9() {
             document.getElementById('computer8step').style.opacity = '0';
+            document.getElementById('computer10step').style.opacity = '0';
             document.getElementById('toliau8').style.pointerEvents = 'none';
+            document.getElementById('toliau10').style.pointerEvents = 'none';
             setTimeout(() => {
                 document.getElementById('computer8step').style.display = 'none';
                 document.getElementById('computer9step').style.display = 'flex';
+                document.getElementById('computer10step').style.display = 'none';
                 document.getElementById('grizti8').style.display = 'none';
                 document.getElementById('toliau8').style.display = 'none';
                 document.getElementById('grizti9').style.display = 'block';
                 document.getElementById('toliau9').style.display = 'block';
+                document.getElementById('grizti10').style.display = 'none';
+                document.getElementById('toliau10').style.display = 'none';
                 document.getElementById('toliau8').style.pointerEvents = 'all';
+                document.getElementById('toliau10').style.pointerEvents = 'all';
             }, 300);
             setTimeout(() => {
                 document.getElementById('computer9step').style.opacity = '1';
             }, 310);
         }
-        function baigti() {
+        function Cstep10() {
             document.getElementById('computer9step').style.opacity = '0';
+            document.getElementById('computer11step').style.opacity = '0';
             document.getElementById('toliau9').style.pointerEvents = 'none';
+            document.getElementById('toliau11').style.pointerEvents = 'none';
             setTimeout(() => {
                 document.getElementById('computer9step').style.display = 'none';
-                document.getElementById('start').style.display = 'flex';
+                document.getElementById('computer10step').style.display = 'flex';
+                document.getElementById('computer11step').style.display = 'none';
                 document.getElementById('grizti9').style.display = 'none';
                 document.getElementById('toliau9').style.display = 'none';
+                document.getElementById('grizti10').style.display = 'block';
+                document.getElementById('toliau10').style.display = 'block';
+                document.getElementById('grizti11').style.display = 'none';
+                document.getElementById('toliau11').style.display = 'none';
+                document.getElementById('toliau9').style.pointerEvents = 'all';
+                document.getElementById('toliau11').style.pointerEvents = 'all';
+            }, 300);
+            setTimeout(() => {
+                document.getElementById('computer10step').style.opacity = '1';
+            }, 310);
+        }
+        function Cstep11() {
+            document.getElementById('computer10step').style.opacity = '0';
+            document.getElementById('toliau10').style.pointerEvents = 'none';
+            setTimeout(() => {
+                document.getElementById('computer10step').style.display = 'none';
+                document.getElementById('computer11step').style.display = 'flex';
+                document.getElementById('grizti10').style.display = 'none';
+                document.getElementById('toliau10').style.display = 'none';
+                document.getElementById('grizti11').style.display = 'block';
+                document.getElementById('toliau11').style.display = 'block';
+                document.getElementById('toliau10').style.pointerEvents = 'all';
+            }, 300);
+            setTimeout(() => {
+                document.getElementById('computer11step').style.opacity = '1';
+            }, 310);
+        }
+        function baigti() {
+            document.getElementById('computer11step').style.opacity = '0';
+            document.getElementById('toliau11').style.pointerEvents = 'none';
+            setTimeout(() => {
+                document.getElementById('computer11step').style.display = 'none';
+                document.getElementById('start').style.display = 'flex';
+                document.getElementById('grizti11').style.display = 'none';
+                document.getElementById('toliau11').style.display = 'none';
                 document.getElementById('grizti1').style.display = 'block';
                 document.getElementById('toliau1').style.display = 'block';
-                document.getElementById('toliau9').style.pointerEvents = 'all';
+                document.getElementById('toliau11').style.pointerEvents = 'all';
                 document.getElementById('bottomNav').style.bottom = '-60px';
                 document.getElementById('navMainP').innerHTML = 'Spausdintuvo instrukcija';
             }, 300);
@@ -987,12 +1076,14 @@
             document.getElementById('troubleshooting').style.display = 'flex';
             setTimeout(() => {
                 document.getElementById('troubleshooting').style.opacity = '1';
+                document.getElementById('navMainP').innerHTML = 'Trikčių šalinimas';
             }, 10);
         }
         function closeTroubleshoot() {
             document.getElementById('troubleshooting').style.opacity = '0';
             setTimeout(() => {
                 document.getElementById('troubleshooting').style.display = 'none';
+                document.getElementById('navMainP').innerHTML = 'Skenavimas - išsaugoti kompiuteryje';
             }, 300);
         }
         function restart() {
