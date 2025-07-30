@@ -95,8 +95,22 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px;
+            padding-right: 50px;
             font-size: 20px;
             z-index: 20;
+        }
+        nav i{
+            position: absolute;
+            right: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        nav i:hover{
+            opacity: 0.8;
+        }
+        nav i:active{
+            opacity: 0.5;
+            transform: scale(0.9);
         }
         #bottomNav{
             width: 100%;
@@ -135,6 +149,39 @@
             opacity: 0.5;
             transform: scale(0.95);
         }
+
+        #options{
+            width: auto;
+            max-width: 90%;
+            height: auto;
+            position: fixed;
+            top: 50px;
+            right: 15px;
+            background-color: #595555;
+            z-index: 25;
+            padding: 10px;
+            border-radius: 25px 5px 25px 25px;
+            border: 2px solid white;
+            display: none;
+            opacity: 0;
+            transition: 0.3s;
+        }
+        #options div{
+            background-color: white;
+            color: black;
+            padding: 7px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        #options div:hover{
+            opacity: 0.8;
+        }
+        #options div:active{
+            opacity: 0.5;
+            transform: scale(0.95);
+        }
+
         .checkDiv{
             color: white;
             display: flex;
@@ -511,6 +558,13 @@
             transition: 0.3s;
         }
         @media only screen and (max-width: 600px){
+            #options div:hover{
+                opacity: 1;
+            }
+            #options div:active{
+                opacity: 0.5;
+                transform: scale(0.95);
+            }
             .checkDiv{
                 width: 90%;
                 display: block;
@@ -535,7 +589,18 @@
             #modelName{
                 position: absolute;
                 bottom: 5px;
+                right: 35px;
+            }
+            nav i{
+                bottom: 7px;
                 right: 5px;
+            }
+            nav i:hover{
+                opacity: 1;
+            }
+            nav i:active{
+                opacity: 0.5;
+                transform: scale(0.9);
             }
 
             button:hover{
@@ -569,6 +634,7 @@
     <nav>
         <p id="navMainP">Spausdintuvo instrukcija</p>
         <p id="modelName"><b>Brother DCP-L2620DW</b></p>
+        <i ontouchstart onclick="options()" class="fa-regular fa-square-caret-down"></i>
     </nav>
     <div id="bottomNav">
         <button ontouchstart style="opacity: 0; pointer-events: none;" id="grizti1"><i class="fa-solid fa-chevron-left"></i> Grįžti</button>
@@ -596,6 +662,11 @@
         <button onclick="Cstep10()" ontouchstart style="display: none;" id="grizti11"><i class="fa-solid fa-chevron-left"></i> Grįžti</button>
         <button onclick="baigti()" ontouchstart style="display: none;" id="toliau11"><i class="fa-solid fa-flag-checkered"></i> Atlikta</button>
     </div>
+
+    <div id="options">
+        <div ontouchstart onclick="manual()">Peržiūrėti visą instrukciją (EN) <i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+    </div>
+
         <div id="start">
             <h1>Pasirink:</h3>
             <div onclick="scan()" ontouchstart id="skenavimasBtn" class="chooseBtns"><i class="fa-solid fa-print"></i> Skenavimas</div>
@@ -611,7 +682,7 @@
             <h2>Skenuotą dokumentą išsaugoti...</h2>
             <div id="scanDivArrange">
                 <div onclick="Cstep1()" ontouchstart id="kompiuteryjeBtn" class="chooseBtns" style="margin-right: 25px;"><i class="fa-solid fa-laptop"></i> kompiuteryje</div>
-                <div ontouchstart id="telefoneBtn" class="chooseBtns"><i class="fa-solid fa-mobile-screen"></i> telefone</div>
+                <!-- <div ontouchstart id="telefoneBtn" class="chooseBtns"><i class="fa-solid fa-mobile-screen"></i> telefone</div> -->
             </div>
         </div>
         <div id="computer1step">
@@ -711,6 +782,28 @@
             setTimeout(() => {
                 document.getElementById('loading').style.display = 'none';
             }, 1100);
+        }
+
+        function options() {
+            if (document.getElementById('options').style.opacity === '1'){
+                document.getElementById('options').style.opacity = '0';
+                setTimeout(() => {
+                    document.getElementById('options').style.display = 'none';
+                }, 300);
+            }
+            else {
+                document.getElementById('options').style.display = 'block';
+                setTimeout(() => {
+                    document.getElementById('options').style.opacity = '1';
+                }, 10);
+            }
+        }
+        function manual() {
+            window.open('https://bit.ly/4mBVRjJ');
+            document.getElementById('options').style.opacity = '0';
+            setTimeout(() => {
+                document.getElementById('options').style.display = 'none';
+            }, 300);
         }
 
         function scan() {
