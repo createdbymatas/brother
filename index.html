@@ -63,7 +63,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            transition: 0.3s;
+            transition: none;
             opacity: 1;
         }
         #loader{
@@ -288,7 +288,7 @@
             opacity: 0.5;
             transform: scale(0.95);
         }
-        #scanWindow{
+        #scanChooseDestination{
             width: 100%;
             height: 100%;
             position: fixed;
@@ -303,13 +303,31 @@
             opacity: 0;
             transition: 0.3s;
         }
-        #scanWindow h2{
+        #scanChooseDestination h2{
             margin-top: 30px;
         }
         #scanDivArrange{
             display: flex;
             justify-content: center;
             align-items: center;
+        }
+        #scanChooseMethod{
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            opacity: 0;
+            transition: 0.3s;
+        }
+        #scanChooseMethod h2{
+            margin-top: 30px;
         }
         .stepP{
             font-size: 20px;
@@ -322,9 +340,11 @@
         }
         .screen{
             width: 190px;
-            height: 55px;
+            height: 53px;
             background-color: lightblue;
             padding: 5px;
+            padding-left: 7px;
+            padding-right: 7px;
             overflow: hidden;
         }
         .screen p{
@@ -341,7 +361,7 @@
             margin-top: 5px;
             text-align: center;
         }
-        #computer1step{
+        #computerManual1step{
             width: 100%;
             height: 100%;
             position: fixed;
@@ -356,7 +376,7 @@
             opacity: 0;
             transition: 0.3s;
         }
-        #computer2step{
+        #computerManual2step{
             width: 100%;
             height: 100%;
             position: fixed;
@@ -371,7 +391,7 @@
             opacity: 0;
             transition: 0.3s;
         }
-        #computer3step{
+        #computerManual3step{
             width: 100%;
             height: 100%;
             position: fixed;
@@ -386,7 +406,7 @@
             opacity: 0;
             transition: 0.3s;
         }
-        #computer4step{
+        #computerManual4step{
             width: 100%;
             height: 100%;
             position: fixed;
@@ -409,10 +429,10 @@
                 margin-left: 0;
             }
             40%{
-                margin-left: -32%;
+                margin-left: -35%;
             }
             79.9999%{
-                margin-left: -32%;
+                margin-left: -35%;
             }
             80%{
                 margin-left: 0;
@@ -421,7 +441,7 @@
                 margin-left: 0;
             }
         }
-        #computer5step{
+        #computerManual5step{
             width: 100%;
             height: 100%;
             position: fixed;
@@ -436,7 +456,7 @@
             opacity: 0;
             transition: 0.3s;
         }
-        #computer6step{
+        #computerManual6step{
             width: 100%;
             height: 100%;
             position: fixed;
@@ -451,7 +471,7 @@
             opacity: 0;
             transition: 0.3s;
         }
-        #computer7step{
+        #computerManual7step{
             width: 100%;
             height: 100%;
             position: fixed;
@@ -466,7 +486,7 @@
             opacity: 0;
             transition: 0.3s;
         }
-        #computer71step{
+        #computerManual71step{
             width: 100%;
             height: 100%;
             position: fixed;
@@ -481,7 +501,7 @@
             opacity: 0;
             transition: 0.3s;
         }
-        #computer8step{
+        #computerManual8step{
             width: 100%;
             height: 100%;
             position: fixed;
@@ -496,7 +516,7 @@
             opacity: 0;
             transition: 0.3s;
         }
-        #computer9step{
+        #computerManual9step{
             width: 100%;
             height: 100%;
             position: fixed;
@@ -511,7 +531,7 @@
             opacity: 0;
             transition: 0.3s;
         }
-        #computer10step{
+        #computerManual10step{
             width: 100%;
             height: 100%;
             position: fixed;
@@ -526,7 +546,7 @@
             opacity: 0;
             transition: 0.3s;
         }
-        #computer11step{
+        #computerManual11step{
             width: 100%;
             height: 100%;
             position: fixed;
@@ -681,70 +701,78 @@
             <div ontouchstart class="checkDiv" id="checkTwo" onclick="checkTwo()"><div><i class="fa-solid fa-check" id="checkTwoI"></i></div><span id="wifiLight">Wi-Fi <i class="fa-solid fa-wifi"></i></span> lemputė spausdintuvo skydelyje šviečia žalia spalva (nemirksi)</div>
             <div ontouchstart class="checkDiv" id="checkThree" onclick="checkThree()"><div><i class="fa-solid fa-check" id="checkThreeI"></i></div>Į skenerio vietą įdėtas lapas, kuris turi būti nuskenuotas</div>
         </div>
-        <div id="scanWindow">
+        <div id="scanChooseDestination">
             <h1>Pasirink:</h3>
-            <h2>Skenuotą dokumentą išsaugoti...</h2>
+            <h2>Kur išsaugoti skenuotą dokumentą?</h2>
             <div id="scanDivArrange">
-                <div onclick="Cstep1()" ontouchstart id="kompiuteryjeBtn" class="chooseBtns" style="margin-right: 25px;"><i class="fa-solid fa-laptop"></i> kompiuteryje</div>
+                <div onclick="scanMethod()" ontouchstart id="kompiuteryjeBtn" class="chooseBtns"><i class="fa-solid fa-laptop"></i> Kompiuteryje</div>
                 <!-- <div ontouchstart id="telefoneBtn" class="chooseBtns"><i class="fa-solid fa-mobile-screen"></i> telefone</div> -->
             </div>
         </div>
-        <div id="computer1step">
+        <div id="scanChooseMethod">
+            <h1>Pasirink:</h3>
+            <h2>Kur valdyti skenerį?</h2>
+            <div id="scanDivArrange">
+                <div onclick="Cstep1()" ontouchstart id="valdSpausdintuveBtn" class="chooseBtns" style="margin-right: 30px;"><i class="fa-solid fa-print"></i> Spausdintuve</div>
+                <div ontouchstart id="valdKompiuteryjeBtn" class="chooseBtns"><i class="fa-solid fa-laptop"></i> Kompiuteryje</div>
+            </div>
+        </div>
+        <div id="computerManual1step">
             <h2><b>1.</b> Paspausk <b class="extraB">Scan</b> mygtuką spausdintuvo skydelyje.</h2>
             <p class="stepP">Spustelėk <b class="extraB">Toliau <i class="fa-solid fa-chevron-right"></i></b>, kai spausdintuvo ekranas rodo: <div class="screen"><p>Scan: Select ▲▼</p></div></p>
             <p class="vertimas">(Skenavimas: Pasirinkti ▲▼)</p>
         </div>
-        <div id="computer2step">
+        <div id="computerManual2step">
             <h2><b>2.</b> Paspausk bet kurį iš šių mygtukų: ▲▼.</h2>
             <p class="stepP">Spustelėk <b class="extraB">Toliau <i class="fa-solid fa-chevron-right"></i></b>, kai spausdintuvo ekranas rodo: <div class="screen"><p>Select ▲▼ or OK</p><p>to PC</p></div></p>
             <p class="vertimas">(Pasirinkti ▲▼ ar OK / į kompiuterį)</p>
         </div>
-        <div id="computer3step">
+        <div id="computerManual3step">
             <h2><b>3.</b> Paspausk <b class="extraB">OK</b> mygtuką.</h2>
             <p class="stepP">Spustelėk <b class="extraB">Toliau <i class="fa-solid fa-chevron-right"></i></b>, kai spausdintuvo ekranas rodo: <div class="screen"><p>Select ▲▼ or OK</p><p>File</p></div></p>
             <p class="vertimas">(Pasirinkti ▲▼ ar OK / Failas)</p>
         </div>
-        <div id="computer4step">
+        <div id="computerManual4step">
             <h2><b>4.</b> Paspausk <b class="extraB">OK</b> mygtuką.</h2>
             <p class="stepP">Spustelėk <b class="extraB">Toliau <i class="fa-solid fa-chevron-right"></i></b>, kai spausdintuvo ekranas rodo: <div class="screen"><p>Scan to File</p><p id="pressStartOrOptions">Press Start or Options</p></div></p>
             <p class="vertimas">(Skenuoti failą / Paspausti Start (Paleisti) ar Options (Parinktys))</p>
             <button ontouchstart onclick="troubleshoot()" style="margin-top: 20px;">Nerodo?</button>
         </div>
-        <div id="computer5step">
+        <div id="computerManual5step">
             <h2><b>5.</b> Paspausk <b class="extraB"><span style="color:forestgreen;">▬▬</span> Start</b> mygtuką.</h2>
             <p class="stepP">Spustelėk <b class="extraB">Toliau <i class="fa-solid fa-chevron-right"></i></b>, kai spausdintuvo ekranas rodo: <div class="screen"><p>Connecting to PC</p></div></p>
             <p class="vertimas">(Jungiamasi prie kompiuterio)</p>
         </div>
-        <div id="computer6step">
+        <div id="computerManual6step">
             <h2><b>6.</b> Palauk, kol spausdintuvas prisijungs prie kompiuterio.</h2>
             <p class="stepP">Spustelėk <b class="extraB">Toliau <i class="fa-solid fa-chevron-right"></i></b>, kai spausdintuvo ekranas rodo: <div class="screen"><p>Scanning</p></div></p>
             <p class="vertimas">(Skenuojama)</p>
         </div>
-        <div id="computer7step">
+        <div id="computerManual7step">
             <h2><b>7.</b> Palauk, kol spausdintuvas nuskenuos lapą.</h2>
             <p class="stepP">Spustelėk <b class="extraB">Toliau <i class="fa-solid fa-chevron-right"></i></b>, kai spausdintuvo ekranas rodo: <div class="screen"><p>Next Page?</p><p>▲ Yes ▼ No (Send)</p></div></p>
             <p class="vertimas">(Sekantis puslapis / ▲ Taip ▼  Ne (Siųsti))</p>
         </div>
-        <div id="computer71step">
+        <div id="computerManual71step">
             <h2><b>7.1.</b> Jei kartu į tą patį failą nori išsaugoti dar vieną (kelis) lapą (-us), paspausk ▲ mygtuką;<br>jei ne - praleisk šį žingsnį.</h2>
             <p class="stepP">Spustelėk <b class="extraB">Toliau <i class="fa-solid fa-chevron-right"></i></b>, kai spausdintuvo ekranas vėl rodo: <div class="screen"><p>Next Page?</p><p>▲ Yes ▼ No (Send)</p></div></p>
             <p class="vertimas">(Sekantis puslapis / ▲ Taip ▼  Ne (Siųsti))</p>
             <p class="stepP" style="margin-top: 10px;"><b><i>PASTABA:</i></b> Spausdamas ▲ mygtuką gali pridėti tiek lapų, kiek papildomai reikia nuskenuoti ir pridėti į tą patį failą.</p>
         </div>
-        <div id="computer8step">
+        <div id="computerManual8step">
             <h2><b>8.</b> Kai nebereikia į tą patį failą išsaugoti daugiau lapų, paspausk ▼ mygtuką.</h2>
             <p class="stepP">Spustelėk <b class="extraB">Toliau <i class="fa-solid fa-chevron-right"></i></b>, kai spausdintuvo ekranas rodo: <div class="screen"><p>Processing</p></div></p>
             <p class="vertimas">(Apdorojama)</p>
         </div>
-        <div id="computer9step">
+        <div id="computerManual9step">
             <h2><b>9.</b> Palauk, kol spausdintuvas apdoros ir sukurs failą.</h2>
             <p class="stepP">Spustelėk <b class="extraB">Toliau <i class="fa-solid fa-chevron-right"></i></b>, kai spausdintuvo ekranas rodo: <div class="screen"><p>Scan: Select ▲▼</p></div></p>
             <p class="vertimas">(Skenavimas: Pasirinkti ▲▼)</p>
         </div>
-        <div id="computer10step">
+        <div id="computerManual10step">
             <h2><b>10.</b> Spausdintuvo ekrane uždaryk skenavimo meniu naudojant <b class="extraB"><span style="color: red;">▬▬</span> Stop/Exit</b> mygtuką.</h2>
         </div>
-        <div id="computer11step">
+        <div id="computerManual11step">
             <h2><b>11.</b> Spausdinimas baigtas.</h2>
             <p class="stepP">Kompiuterio ekrano apačioje turi pasirodyti pranešimas <i class="fa-solid fa-circle-check" style="color: #5AA132; background-color: white; border-radius: 100%;"></i> <b class="extraB">Completed</b> <i>(Baigta)</i>.<br>Paspaudus mygtuką <span style="background-color: white; color: black; font-size: 15px; padding: 3px; padding-left: 20px; padding-right: 20px; font-weight: 100; border-radius: 5px;"> Open Folder</span> <i>(Atidaryti aplanką)</i> bus atidarytas kompiuterio aplankas <i>Dokumentai</i>, kuriame sukurtas failas.<br>Dokumento pavadinimas yra <i class="fa-solid fa-file-pdf"></i><i>ScanMMMM-mm-dd_vvmmss.pdf</i> (pvz.: Scan2025-07-28_140130).</p>
         </div>
@@ -762,26 +790,29 @@
     <script src="https://kit.fontawesome.com/a11707644f.js" crossorigin="anonymous"></script>
     <script>
         function loadFunction(){
-            document.getElementById('computer1step').style.display = 'flex';
-            document.getElementById('computer2step').style.display = 'flex';
-            document.getElementById('computer3step').style.display = 'flex';
-            document.getElementById('computer4step').style.display = 'flex';
-            document.getElementById('computer5step').style.display = 'flex';
-            document.getElementById('computer6step').style.display = 'flex';
-            document.getElementById('computer7step').style.display = 'flex';
-            document.getElementById('computer71step').style.display = 'flex';
-            document.getElementById('computer8step').style.display = 'flex';
+            document.getElementById('computerManual1step').style.display = 'flex';
+            document.getElementById('computerManual2step').style.display = 'flex';
+            document.getElementById('computerManual3step').style.display = 'flex';
+            document.getElementById('computerManual4step').style.display = 'flex';
+            document.getElementById('computerManual5step').style.display = 'flex';
+            document.getElementById('computerManual6step').style.display = 'flex';
+            document.getElementById('computerManual7step').style.display = 'flex';
+            document.getElementById('computerManual71step').style.display = 'flex';
+            document.getElementById('computerManual8step').style.display = 'flex';
+            setTimeout(() => {
+                document.getElementById('loading').style.transition = '0.3s';
+            }, 990);
             setTimeout(() => {
                 document.getElementById('loading').style.opacity = '0';
-                document.getElementById('computer1step').style.display = 'none';
-                document.getElementById('computer2step').style.display = 'none';
-                document.getElementById('computer3step').style.display = 'none';
-                document.getElementById('computer4step').style.display = 'none';
-                document.getElementById('computer5step').style.display = 'none';
-                document.getElementById('computer6step').style.display = 'none';
-                document.getElementById('computer7step').style.display = 'none';
-                document.getElementById('computer71step').style.display = 'none';
-                document.getElementById('computer8step').style.display = 'none';
+                document.getElementById('computerManual1step').style.display = 'none';
+                document.getElementById('computerManual2step').style.display = 'none';
+                document.getElementById('computerManual3step').style.display = 'none';
+                document.getElementById('computerManual4step').style.display = 'none';
+                document.getElementById('computerManual5step').style.display = 'none';
+                document.getElementById('computerManual6step').style.display = 'none';
+                document.getElementById('computerManual7step').style.display = 'none';
+                document.getElementById('computerManual71step').style.display = 'none';
+                document.getElementById('computerManual8step').style.display = 'none';
             }, 1000);
             setTimeout(() => {
                 document.getElementById('loading').style.display = 'none';
@@ -833,10 +864,10 @@
                     document.getElementById('beforeScanning').style.opacity = '0';
                     setTimeout(() => {
                         document.getElementById('beforeScanning').style.display = 'none';
-                        document.getElementById('scanWindow').style.display = 'flex';
+                        document.getElementById('scanChooseDestination').style.display = 'flex';
                     }, 300);
                     setTimeout(() => {
-                        document.getElementById('scanWindow').style.opacity = '1';
+                        document.getElementById('scanChooseDestination').style.opacity = '1';
                     }, 310);
                 }
                 else {
@@ -856,10 +887,10 @@
                     document.getElementById('beforeScanning').style.opacity = '0';
                     setTimeout(() => {
                         document.getElementById('beforeScanning').style.display = 'none';
-                        document.getElementById('scanWindow').style.display = 'flex';
+                        document.getElementById('scanChooseDestination').style.display = 'flex';
                     }, 300);
                     setTimeout(() => {
-                        document.getElementById('scanWindow').style.opacity = '1';
+                        document.getElementById('scanChooseDestination').style.opacity = '1';
                     }, 310);
                 }
                 else {
@@ -879,10 +910,10 @@
                     document.getElementById('beforeScanning').style.opacity = '0';
                     setTimeout(() => {
                         document.getElementById('beforeScanning').style.display = 'none';
-                        document.getElementById('scanWindow').style.display = 'flex';
+                        document.getElementById('scanChooseDestination').style.display = 'flex';
                     }, 300);
                     setTimeout(() => {
-                        document.getElementById('scanWindow').style.opacity = '1';
+                        document.getElementById('scanChooseDestination').style.opacity = '1';
                     }, 310);
                 }
                 else {
@@ -890,15 +921,26 @@
                 }
             }, 300);
         }
+        function scanMethod() {
+            document.getElementById('scanChooseDestination').style.opacity = '0';
+            setTimeout(() => {
+                document.getElementById('scanChooseDestination').style.display = 'none';
+                document.getElementById('scanChooseMethod').style.display = 'flex';
+                document.getElementById('navMainP').innerHTML = 'Skenavimas - išsaugoti kompiuteryje';
+            }, 300);
+            setTimeout(() => {
+                document.getElementById('scanChooseMethod').style.opacity = '1';
+            }, 310);
+        }
         function Cstep1() {
-            document.getElementById('scanWindow').style.opacity = '0';
-            document.getElementById('computer2step').style.opacity = '0';
+            document.getElementById('scanChooseMethod').style.opacity = '0';
+            document.getElementById('computerManual2step').style.opacity = '0';
             document.getElementById('grizti2').style.pointerEvents = 'none';
             document.getElementById('toliau2').style.pointerEvents = 'none';
             setTimeout(() => {
-                document.getElementById('scanWindow').style.display = 'none';
-                document.getElementById('computer2step').style.display = 'none';
-                document.getElementById('computer1step').style.display = 'flex';
+                document.getElementById('scanChooseMethod').style.display = 'none';
+                document.getElementById('computerManual2step').style.display = 'none';
+                document.getElementById('computerManual1step').style.display = 'flex';
                 document.getElementById('navMainP').innerHTML = 'Skenavimas - išsaugoti kompiuteryje';
                 document.getElementById('bottomNav').style.bottom = '0';
                 document.getElementById('grizti2').style.display = 'none';
@@ -912,18 +954,18 @@
                 document.getElementById('checkThreeI').style.opacity = '0.1';
             }, 300);
             setTimeout(() => {
-                document.getElementById('computer1step').style.opacity = '1';
+                document.getElementById('computerManual1step').style.opacity = '1';
             }, 310);
         }
         function Cstep2() {
-            document.getElementById('computer1step').style.opacity = '0';
-            document.getElementById('computer3step').style.opacity = '0';
+            document.getElementById('computerManual1step').style.opacity = '0';
+            document.getElementById('computerManual3step').style.opacity = '0';
             document.getElementById('toliau1').style.pointerEvents = 'none';
             document.getElementById('toliau3').style.pointerEvents = 'none';
             setTimeout(() => {
-                document.getElementById('computer1step').style.display = 'none';
-                document.getElementById('computer2step').style.display = 'flex';
-                document.getElementById('computer3step').style.display = 'none';
+                document.getElementById('computerManual1step').style.display = 'none';
+                document.getElementById('computerManual2step').style.display = 'flex';
+                document.getElementById('computerManual3step').style.display = 'none';
                 document.getElementById('grizti1').style.display = 'none';
                 document.getElementById('toliau1').style.display = 'none';
                 document.getElementById('grizti2').style.display = 'block';
@@ -934,18 +976,18 @@
                 document.getElementById('toliau3').style.pointerEvents = 'all';
             }, 300);
             setTimeout(() => {
-                document.getElementById('computer2step').style.opacity = '1';
+                document.getElementById('computerManual2step').style.opacity = '1';
             }, 310);
         }
         function Cstep3() {
-            document.getElementById('computer2step').style.opacity = '0';
-            document.getElementById('computer4step').style.opacity = '0';
+            document.getElementById('computerManual2step').style.opacity = '0';
+            document.getElementById('computerManual4step').style.opacity = '0';
             document.getElementById('toliau2').style.pointerEvents = 'none';
             document.getElementById('toliau4').style.pointerEvents = 'none';
             setTimeout(() => {
-                document.getElementById('computer2step').style.display = 'none';
-                document.getElementById('computer3step').style.display = 'flex';
-                document.getElementById('computer4step').style.display = 'none';
+                document.getElementById('computerManual2step').style.display = 'none';
+                document.getElementById('computerManual3step').style.display = 'flex';
+                document.getElementById('computerManual4step').style.display = 'none';
                 document.getElementById('grizti2').style.display = 'none';
                 document.getElementById('toliau2').style.display = 'none';
                 document.getElementById('grizti3').style.display = 'block';
@@ -956,18 +998,18 @@
                 document.getElementById('toliau4').style.pointerEvents = 'all';
             }, 300);
             setTimeout(() => {
-                document.getElementById('computer3step').style.opacity = '1';
+                document.getElementById('computerManual3step').style.opacity = '1';
             }, 310);
         }
         function Cstep4() {
-            document.getElementById('computer3step').style.opacity = '0';
-            document.getElementById('computer5step').style.opacity = '0';
+            document.getElementById('computerManual3step').style.opacity = '0';
+            document.getElementById('computerManual5step').style.opacity = '0';
             document.getElementById('toliau3').style.pointerEvents = 'none';
             document.getElementById('toliau5').style.pointerEvents = 'none';
             setTimeout(() => {
-                document.getElementById('computer3step').style.display = 'none';
-                document.getElementById('computer4step').style.display = 'flex';
-                document.getElementById('computer5step').style.display = 'none';
+                document.getElementById('computerManual3step').style.display = 'none';
+                document.getElementById('computerManual4step').style.display = 'flex';
+                document.getElementById('computerManual5step').style.display = 'none';
                 document.getElementById('grizti3').style.display = 'none';
                 document.getElementById('toliau3').style.display = 'none';
                 document.getElementById('grizti4').style.display = 'block';
@@ -978,18 +1020,18 @@
                 document.getElementById('toliau5').style.pointerEvents = 'all';
             }, 300);
             setTimeout(() => {
-                document.getElementById('computer4step').style.opacity = '1';
+                document.getElementById('computerManual4step').style.opacity = '1';
             }, 310);
         }
         function Cstep5() {
-            document.getElementById('computer4step').style.opacity = '0';
-            document.getElementById('computer6step').style.opacity = '0';
+            document.getElementById('computerManual4step').style.opacity = '0';
+            document.getElementById('computerManual6step').style.opacity = '0';
             document.getElementById('toliau4').style.pointerEvents = 'none';
             document.getElementById('toliau6').style.pointerEvents = 'none';
             setTimeout(() => {
-                document.getElementById('computer4step').style.display = 'none';
-                document.getElementById('computer5step').style.display = 'flex';
-                document.getElementById('computer6step').style.display = 'none';
+                document.getElementById('computerManual4step').style.display = 'none';
+                document.getElementById('computerManual5step').style.display = 'flex';
+                document.getElementById('computerManual6step').style.display = 'none';
                 document.getElementById('grizti4').style.display = 'none';
                 document.getElementById('toliau4').style.display = 'none';
                 document.getElementById('grizti5').style.display = 'block';
@@ -1000,18 +1042,18 @@
                 document.getElementById('toliau6').style.pointerEvents = 'all';
             }, 300);
             setTimeout(() => {
-                document.getElementById('computer5step').style.opacity = '1';
+                document.getElementById('computerManual5step').style.opacity = '1';
             }, 310);
         }
         function Cstep6() {
-            document.getElementById('computer5step').style.opacity = '0';
-            document.getElementById('computer7step').style.opacity = '0';
+            document.getElementById('computerManual5step').style.opacity = '0';
+            document.getElementById('computerManual7step').style.opacity = '0';
             document.getElementById('toliau5').style.pointerEvents = 'none';
             document.getElementById('toliau7').style.pointerEvents = 'none';
             setTimeout(() => {
-                document.getElementById('computer5step').style.display = 'none';
-                document.getElementById('computer6step').style.display = 'flex';
-                document.getElementById('computer7step').style.display = 'none';
+                document.getElementById('computerManual5step').style.display = 'none';
+                document.getElementById('computerManual6step').style.display = 'flex';
+                document.getElementById('computerManual7step').style.display = 'none';
                 document.getElementById('grizti5').style.display = 'none';
                 document.getElementById('toliau5').style.display = 'none';
                 document.getElementById('grizti6').style.display = 'block';
@@ -1022,18 +1064,18 @@
                 document.getElementById('toliau7').style.pointerEvents = 'all';
             }, 300);
             setTimeout(() => {
-                document.getElementById('computer6step').style.opacity = '1';
+                document.getElementById('computerManual6step').style.opacity = '1';
             }, 310);
         }
         function Cstep7() {
-            document.getElementById('computer6step').style.opacity = '0';
-            document.getElementById('computer71step').style.opacity = '0';
+            document.getElementById('computerManual6step').style.opacity = '0';
+            document.getElementById('computerManual71step').style.opacity = '0';
             document.getElementById('toliau6').style.pointerEvents = 'none';
             document.getElementById('toliau71').style.pointerEvents = 'none';
             setTimeout(() => {
-                document.getElementById('computer6step').style.display = 'none';
-                document.getElementById('computer7step').style.display = 'flex';
-                document.getElementById('computer71step').style.display = 'none';
+                document.getElementById('computerManual6step').style.display = 'none';
+                document.getElementById('computerManual7step').style.display = 'flex';
+                document.getElementById('computerManual71step').style.display = 'none';
                 document.getElementById('grizti6').style.display = 'none';
                 document.getElementById('toliau6').style.display = 'none';
                 document.getElementById('grizti7').style.display = 'block';
@@ -1044,18 +1086,18 @@
                 document.getElementById('toliau71').style.pointerEvents = 'all';
             }, 300);
             setTimeout(() => {
-                document.getElementById('computer7step').style.opacity = '1';
+                document.getElementById('computerManual7step').style.opacity = '1';
             }, 310);
         }
         function Cstep71() {
-            document.getElementById('computer7step').style.opacity = '0';
-            document.getElementById('computer8step').style.opacity = '0';
+            document.getElementById('computerManual7step').style.opacity = '0';
+            document.getElementById('computerManual8step').style.opacity = '0';
             document.getElementById('toliau7').style.pointerEvents = 'none';
             document.getElementById('toliau8').style.pointerEvents = 'none';
             setTimeout(() => {
-                document.getElementById('computer7step').style.display = 'none';
-                document.getElementById('computer71step').style.display = 'flex';
-                document.getElementById('computer8step').style.display = 'none';
+                document.getElementById('computerManual7step').style.display = 'none';
+                document.getElementById('computerManual71step').style.display = 'flex';
+                document.getElementById('computerManual8step').style.display = 'none';
                 document.getElementById('grizti7').style.display = 'none';
                 document.getElementById('toliau7').style.display = 'none';
                 document.getElementById('grizti71').style.display = 'block';
@@ -1066,18 +1108,18 @@
                 document.getElementById('toliau8').style.pointerEvents = 'all';
             }, 300);
             setTimeout(() => {
-                document.getElementById('computer71step').style.opacity = '1';
+                document.getElementById('computerManual71step').style.opacity = '1';
             }, 310);
         }
         function Cstep8() {
-            document.getElementById('computer71step').style.opacity = '0';
-            document.getElementById('computer9step').style.opacity = '0';
+            document.getElementById('computerManual71step').style.opacity = '0';
+            document.getElementById('computerManual9step').style.opacity = '0';
             document.getElementById('toliau71').style.pointerEvents = 'none';
             document.getElementById('toliau9').style.pointerEvents = 'none';
             setTimeout(() => {
-                document.getElementById('computer71step').style.display = 'none';
-                document.getElementById('computer8step').style.display = 'flex';
-                document.getElementById('computer9step').style.display = 'none';
+                document.getElementById('computerManual71step').style.display = 'none';
+                document.getElementById('computerManual8step').style.display = 'flex';
+                document.getElementById('computerManual9step').style.display = 'none';
                 document.getElementById('grizti71').style.display = 'none';
                 document.getElementById('toliau71').style.display = 'none';
                 document.getElementById('grizti8').style.display = 'block';
@@ -1088,18 +1130,18 @@
                 document.getElementById('toliau9').style.pointerEvents = 'all';
             }, 300);
             setTimeout(() => {
-                document.getElementById('computer8step').style.opacity = '1';
+                document.getElementById('computerManual8step').style.opacity = '1';
             }, 310);
         }
         function Cstep9() {
-            document.getElementById('computer8step').style.opacity = '0';
-            document.getElementById('computer10step').style.opacity = '0';
+            document.getElementById('computerManual8step').style.opacity = '0';
+            document.getElementById('computerManual10step').style.opacity = '0';
             document.getElementById('toliau8').style.pointerEvents = 'none';
             document.getElementById('toliau10').style.pointerEvents = 'none';
             setTimeout(() => {
-                document.getElementById('computer8step').style.display = 'none';
-                document.getElementById('computer9step').style.display = 'flex';
-                document.getElementById('computer10step').style.display = 'none';
+                document.getElementById('computerManual8step').style.display = 'none';
+                document.getElementById('computerManual9step').style.display = 'flex';
+                document.getElementById('computerManual10step').style.display = 'none';
                 document.getElementById('grizti8').style.display = 'none';
                 document.getElementById('toliau8').style.display = 'none';
                 document.getElementById('grizti9').style.display = 'block';
@@ -1110,18 +1152,18 @@
                 document.getElementById('toliau10').style.pointerEvents = 'all';
             }, 300);
             setTimeout(() => {
-                document.getElementById('computer9step').style.opacity = '1';
+                document.getElementById('computerManual9step').style.opacity = '1';
             }, 310);
         }
         function Cstep10() {
-            document.getElementById('computer9step').style.opacity = '0';
-            document.getElementById('computer11step').style.opacity = '0';
+            document.getElementById('computerManual9step').style.opacity = '0';
+            document.getElementById('computerManual11step').style.opacity = '0';
             document.getElementById('toliau9').style.pointerEvents = 'none';
             document.getElementById('toliau11').style.pointerEvents = 'none';
             setTimeout(() => {
-                document.getElementById('computer9step').style.display = 'none';
-                document.getElementById('computer10step').style.display = 'flex';
-                document.getElementById('computer11step').style.display = 'none';
+                document.getElementById('computerManual9step').style.display = 'none';
+                document.getElementById('computerManual10step').style.display = 'flex';
+                document.getElementById('computerManual11step').style.display = 'none';
                 document.getElementById('grizti9').style.display = 'none';
                 document.getElementById('toliau9').style.display = 'none';
                 document.getElementById('grizti10').style.display = 'block';
@@ -1132,15 +1174,15 @@
                 document.getElementById('toliau11').style.pointerEvents = 'all';
             }, 300);
             setTimeout(() => {
-                document.getElementById('computer10step').style.opacity = '1';
+                document.getElementById('computerManual10step').style.opacity = '1';
             }, 310);
         }
         function Cstep11() {
-            document.getElementById('computer10step').style.opacity = '0';
+            document.getElementById('computerManual10step').style.opacity = '0';
             document.getElementById('toliau10').style.pointerEvents = 'none';
             setTimeout(() => {
-                document.getElementById('computer10step').style.display = 'none';
-                document.getElementById('computer11step').style.display = 'flex';
+                document.getElementById('computerManual10step').style.display = 'none';
+                document.getElementById('computerManual11step').style.display = 'flex';
                 document.getElementById('grizti10').style.display = 'none';
                 document.getElementById('toliau10').style.display = 'none';
                 document.getElementById('grizti11').style.display = 'block';
@@ -1148,14 +1190,14 @@
                 document.getElementById('toliau10').style.pointerEvents = 'all';
             }, 300);
             setTimeout(() => {
-                document.getElementById('computer11step').style.opacity = '1';
+                document.getElementById('computerManual11step').style.opacity = '1';
             }, 310);
         }
         function baigti() {
-            document.getElementById('computer11step').style.opacity = '0';
+            document.getElementById('computerManual11step').style.opacity = '0';
             document.getElementById('toliau11').style.pointerEvents = 'none';
             setTimeout(() => {
-                document.getElementById('computer11step').style.display = 'none';
+                document.getElementById('computerManual11step').style.display = 'none';
                 document.getElementById('start').style.display = 'flex';
                 document.getElementById('grizti11').style.display = 'none';
                 document.getElementById('toliau11').style.display = 'none';
@@ -1185,10 +1227,10 @@
         }
         function restart() {
             document.getElementById('troubleshooting').style.opacity = '0';
-            document.getElementById('computer4step').style.opacity = '0';
+            document.getElementById('computerManual4step').style.opacity = '0';
             document.getElementById('toliau4').style.pointerEvents = 'none';
             setTimeout(() => {
-                document.getElementById('computer4step').style.display = 'none';
+                document.getElementById('computerManual4step').style.display = 'none';
                 document.getElementById('start').style.display = 'flex';
                 document.getElementById('grizti4').style.display = 'none';
                 document.getElementById('toliau4').style.display = 'none';
